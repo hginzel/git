@@ -77,11 +77,11 @@ proc load_all_remotes {} {
 			catch {
 				set fd [open [file join $rm_dir $name] r]
 				while {[gets $fd line] >= 0} {
-					if {[regexp {^URL:[ 	]*(.+)$} $line line url]} {
+					if {[regexp {^URL:[	]*(.+)$} $line line url]} {
 						set remote_url($name) $url
 						continue
 					}
-					if {![regexp {^Pull:[ 	]*([^:]+):(.+)$} \
+					if {![regexp {^Pull:[	]*([^:]+):(.+)$} \
 						$line line src dst]} continue
 					if {[string index $src 0] eq {+}} {
 						set src [string range $src 1 end]

@@ -479,10 +479,10 @@ do
 	commit_chk_wrnNNO -text crlf    $crlf   ""        ""        ""          ""          ""
 	commit_chk_wrnNNO ""    lf      $crlf   ""       CRLF_LF    CRLF_LF      ""         CRLF_LF
 	commit_chk_wrnNNO ""    crlf    $crlf   LF_CRLF   ""        LF_CRLF     LF_CRLF     ""
-	commit_chk_wrnNNO auto  lf    	$crlf   ""        ""        ""          ""          ""
-	commit_chk_wrnNNO auto  crlf  	$crlf   LF_CRLF   ""        ""          ""          ""
-	commit_chk_wrnNNO text  lf    	$crlf   ""       CRLF_LF    CRLF_LF     ""          CRLF_LF
-	commit_chk_wrnNNO text  crlf  	$crlf   LF_CRLF   ""        LF_CRLF     LF_CRLF     ""
+	commit_chk_wrnNNO auto  lf	$crlf   ""        ""        ""          ""          ""
+	commit_chk_wrnNNO auto  crlf	$crlf   LF_CRLF   ""        ""          ""          ""
+	commit_chk_wrnNNO text  lf	$crlf   ""       CRLF_LF    CRLF_LF     ""          CRLF_LF
+	commit_chk_wrnNNO text  crlf	$crlf   LF_CRLF   ""        LF_CRLF     LF_CRLF     ""
 done
 
 commit_chk_wrnNNO "text"  ""      false   "$WILC"   "$WICL"   "$WAMIX"    "$WILC"     "$WICL"
@@ -539,15 +539,15 @@ done
 # - checkout_files will check multiple files with a combination of settings
 #   and attributes (core.autocrlf=input is forbidden with core.eol=crlf)
 #
-# - parameter $1 	: text in .gitattributs  "" (empty) | auto | text | -text
-# - parameter $2 	: ident                  "" | i (i == ident)
-# - parameter $3 	: eol in .gitattributs   "" (empty) | lf | crlf
-# - parameter $4 	: core.autocrlf          false | true | input
-# - parameter $5 	: core.eol               "" | lf | crlf | "native"
-# - parameter $6 	: reference for a file with only LF in the repo
-# - parameter $7 	: reference for a file with only CRLF in the repo
-# - parameter $8 	: reference for a file with mixed LF and CRLF in the repo
-# - parameter $9 	: reference for a file with LF and CR in the repo
+# - parameter $1	: text in .gitattributs  "" (empty) | auto | text | -text
+# - parameter $2	: ident                  "" | i (i == ident)
+# - parameter $3	: eol in .gitattributs   "" (empty) | lf | crlf
+# - parameter $4	: core.autocrlf          false | true | input
+# - parameter $5	: core.eol               "" | lf | crlf | "native"
+# - parameter $6	: reference for a file with only LF in the repo
+# - parameter $7	: reference for a file with only CRLF in the repo
+# - parameter $8	: reference for a file with mixed LF and CRLF in the repo
+# - parameter $9	: reference for a file with LF and CR in the repo
 # - parameter $10 : reference for a file with CRLF and a NUL (should be handled as binary when auto)
 
 if test_have_prereq NATIVE_CRLF

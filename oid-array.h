@@ -13,10 +13,10 @@
  * --------
  * -----------------------------------------
  * int print_callback(const struct object_id *oid,
- * 		    void *data)
+ *		    void *data)
  * {
- * 	printf("%s\n", oid_to_hex(oid));
- * 	return 0; // always continue
+ *	printf("%s\n", oid_to_hex(oid));
+ *	return 0; // always continue
  * }
  *
  * void some_func(void)

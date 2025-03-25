@@ -927,7 +927,7 @@ init_dfa (re_dfa_t *dfa, size_t pat_len)
 	    {
 		int i;
 
-	  	utf8_sb_map_inited = 0;
+		utf8_sb_map_inited = 0;
 		for (i = 0; i <= 0x80 / BITSET_WORD_BITS - 1; i++)
 		  utf8_sb_map[i] = BITSET_WORD_MAX;
 	    }
@@ -3567,13 +3567,13 @@ build_charclass (RE_TRANSLATE_TYPE trans, bitset_t sbcset,
     if (BE (trans != NULL, 0))			\
       {						\
 	for (i = 0; i < SBC_MAX; ++i)		\
-  	  if (ctype_func (i))			\
+	  if (ctype_func (i))			\
 	    bitset_set (sbcset, trans[i]);	\
       }						\
     else					\
       {						\
 	for (i = 0; i < SBC_MAX; ++i)		\
-  	  if (ctype_func (i))			\
+	  if (ctype_func (i))			\
 	    bitset_set (sbcset, i);		\
       }						\
   } while (0)

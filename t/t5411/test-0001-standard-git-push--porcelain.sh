@@ -15,7 +15,7 @@ test_expect_success "git-push ($PROTOCOL/porcelain)" '
 	> remote: post-receive< <COMMIT-A> <COMMIT-B> refs/heads/main        Z
 	> remote: post-receive< <ZERO-OID> <COMMIT-A> refs/heads/next        Z
 	> To <URL/of/upstream.git>
-	>  	<COMMIT-B>:refs/heads/main	<COMMIT-A>..<COMMIT-B>
+	>	<COMMIT-B>:refs/heads/main	<COMMIT-A>..<COMMIT-B>
 	> *	HEAD:refs/heads/next	[new branch]
 	> Done
 	EOF
@@ -71,7 +71,7 @@ test_expect_success "non-fast-forward git-push ($PROTOCOL/porcelain)" '
 	> remote: # post-receive hook        Z
 	> remote: post-receive< <COMMIT-A> <COMMIT-B> refs/heads/next        Z
 	> To <URL/of/upstream.git>
-	>  	<COMMIT-B>:refs/heads/next	<COMMIT-A>..<COMMIT-B>
+	>	<COMMIT-B>:refs/heads/next	<COMMIT-A>..<COMMIT-B>
 	> !	refs/heads/main:refs/heads/main	[rejected] (non-fast-forward)
 	> Done
 	EOF

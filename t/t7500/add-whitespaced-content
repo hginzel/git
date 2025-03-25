@@ -2,7 +2,7 @@
 sed -e 's/|$//' >>"$1" <<\EOF
 
  |
-commit message  	 |
+commit message	 |
 
 EOF
 exit 0

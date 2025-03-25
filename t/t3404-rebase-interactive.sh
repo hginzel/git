@@ -1707,7 +1707,7 @@ test_expect_success 'tabs and spaces are accepted in the todolist' '
 	write_script add-indent.sh <<-\EOF &&
 	(
 		# Turn single spaces into space/tab mix
-		sed "1s/ /	/g; 2s/ /  /g; 3s/ / 	/g" "$1"
+		sed "1s/ /	/g; 2s/ /  /g; 3s/ /	/g" "$1"
 		printf "\n\t# comment\n #more\n\t # comment\n"
 	) >"$1.new"
 	mv "$1.new" "$1"

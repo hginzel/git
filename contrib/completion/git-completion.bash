@@ -1033,8 +1033,8 @@ __git_list_merge_strategies ()
 	sed -n -e '/[Aa]vailable strategies are: /,/^$/{
 		s/\.$//
 		s/.*://
-		s/^[ 	]*//
-		s/[ 	]*$//
+		s/^[	]*//
+		s/[	]*$//
 		p
 	}'
 }

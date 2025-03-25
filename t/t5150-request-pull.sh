@@ -81,7 +81,7 @@ test_expect_success 'setup: two scripts for reading pull requests' '
 	n
 	/^$/ n
 	s/ tag \([^ ]*\)$/ tag--\1/
-	s/^[ 	]*\(.*\) \([^ ]*\)/please pull\
+	s/^[	]*\(.*\) \([^ ]*\)/please pull\
 	\1\
 	\2/p
 	q

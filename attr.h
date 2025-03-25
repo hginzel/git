@@ -33,8 +33,8 @@
  * static struct attr_check *check;
  * static void setup_check(void)
  * {
- * 	if (check)
- * 		return; // already done
+ *	if (check)
+ *		return; // already done
  * check = attr_check_initl("crlf", "ident", NULL);
  * }
  * ------------

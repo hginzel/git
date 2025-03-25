@@ -1570,13 +1570,13 @@ struct segment suggest_compaction_segment(uint64_t *sizes, size_t n,
 	 * these tables to exceed the value of the ending point table.
 	 *
 	 * Example table size sequence requiring no compaction:
-	 * 	64, 32, 16, 8, 4, 2, 1
+	 *	64, 32, 16, 8, 4, 2, 1
 	 *
 	 * Example table size sequence where compaction segment end is set to
 	 * the last table. Since the segment end is exclusive, the last table is
 	 * excluded during subsequent compaction and the table with size 3 is
 	 * the final table included:
-	 * 	64, 32, 16, 8, 4, 3, 1
+	 *	64, 32, 16, 8, 4, 3, 1
 	 */
 	for (i = n - 1; i > 0; i--) {
 		if (sizes[i - 1] < sizes[i] * factor) {
@@ -1599,7 +1599,7 @@ struct segment suggest_compaction_segment(uint64_t *sizes, size_t n,
 	 * sequence.
 	 *
 	 * Example compaction segment start set to table with size 32:
-	 * 	128, 32, 16, 8, 4, 3, 1
+	 *	128, 32, 16, 8, 4, 3, 1
 	 */
 	for (; i > 0; i--) {
 		uint64_t curr = bytes;

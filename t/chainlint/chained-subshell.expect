@@ -1,7 +1,7 @@
 2 mkdir sub && (
-3 	cd sub &&
-4 	foo the bar ?!LINT: missing '&&'?!
-5 	nuff said
+3	cd sub &&
+4	foo the bar ?!LINT: missing '&&'?!
+5	nuff said
 6 ) &&
 7 
 8 cut "-d " -f actual | (read s1 s2 s3 &&

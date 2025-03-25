@@ -320,10 +320,10 @@ struct object_info {
 	union {
 		/*
 		 * struct {
-		 * 	... Nothing to expose in this case
+		 *	... Nothing to expose in this case
 		 * } cached;
 		 * struct {
-		 * 	... Nothing to expose in this case
+		 *	... Nothing to expose in this case
 		 * } loose;
 		 */
 		struct {

@@ -10,12 +10,12 @@ diff --git a/a.c b/a.c
 @@ -4,19 +4,21 @@
  long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -24,8 +24,8 @@ diff --git a/a.c b/a.c
  
  int main ()
  {
- 	printf("%ld\n", f(15));
- 	return 0;
+	printf("%ld\n", f(15));
+	return 0;
 -}
 \ No newline at end of file
 +}
@@ -44,12 +44,12 @@ diff --git a/a.c b/a.c
 @@ -4,19 +4,19 @@
  long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -58,8 +58,8 @@ diff --git a/a.c b/a.c
  
  int main ()
  {
- 	printf("%ld\n", f(15));
- 	return 0;
+	printf("%ld\n", f(15));
+	return 0;
 -}
 +}
 \ No newline at end of file
@@ -76,12 +76,12 @@ diff --git a/a.c b/a.c
 @@ -3,19 +3,19 @@
  long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -91,8 +91,8 @@ diff --git a/a.c b/a.c
  
  int main ()
  {
- 	printf("%ld\n", f(15));
- 	return 0;
+	printf("%ld\n", f(15));
+	return 0;
  }
 
 commit ccf97b9878189c40a981da50b15713bb80a35755326320ec80900caf22ced46f
@@ -108,12 +108,12 @@ diff --git a/a.c b/a.c
 -int f(int x)
 +long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -124,7 +124,7 @@ diff --git a/a.c b/a.c
  {
 -	printf("%d\n", f(15));
 +	printf("%ld\n", f(15));
- 	return 0;
+	return 0;
  }
 
 commit f6434acd34260a6c9f61e96d96bf9a323d330561df5b1ca2631104f82026dfed
@@ -139,11 +139,11 @@ diff --git a/a.c b/a.c
 @@ -3,18 +3,19 @@
  int f(int x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
 +	return s;
  }
  
@@ -153,8 +153,8 @@ diff --git a/a.c b/a.c
  
  int main ()
  {
- 	printf("%d\n", f(15));
- 	return 0;
+	printf("%d\n", f(15));
+	return 0;
  }
 
 commit 1dd7e9b2b1699324b53b341e728653b913bc192a14dfea168c5b51f2b3d03592

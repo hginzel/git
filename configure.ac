@@ -868,7 +868,7 @@ AC_MSG_NOTICE([CHECKS for typedefs, structures, and compiler characteristics])
 TYPE_SOCKLEN_T
 case $ac_cv_type_socklen_t in
   yes)	SOCKLEN_T='';;
-  *)  	SOCKLEN_T=$git_cv_socklen_t_equiv;;
+  *)	SOCKLEN_T=$git_cv_socklen_t_equiv;;
 esac
 GIT_CONF_SUBST([SOCKLEN_T])
 

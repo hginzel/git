@@ -2239,7 +2239,7 @@ diff-index line ($m hash)
 $l_map = {
 	# repository root url
 	'https://svn.musicpd.org' => {
-		# repository path 		# GIT_SVN_ID
+		# repository path		# GIT_SVN_ID
 		'mpd/trunk'		=>	'trunk',
 		'mpd/tags/0.11.5'	=>	'tags/0.11.5',
 	},

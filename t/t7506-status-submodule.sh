@@ -283,8 +283,8 @@ diff --cc .gitmodules
  +	url = ../sub2
 ++=======
 + [submodule "sub1"]
-+ 	path = sub1
-+ 	url = ../sub1
++	path = sub1
++	url = ../sub1
 ++>>>>>>> add_sub1
 EOF
 
@@ -299,8 +299,8 @@ diff --cc .gitmodules
  +	url = ../sub2
 ++=======
 + [submodule "sub1"]
-+ 	path = sub1
-+ 	url = ../sub1
++	path = sub1
++	url = ../sub1
 ++>>>>>>> add_sub1
 EOF
 

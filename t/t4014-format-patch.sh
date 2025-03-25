@@ -2320,7 +2320,7 @@ test_expect_success 'format-patch errors out when history involves criss-cross' 
 	test_commit D &&
 	git checkout xcb &&
 	test_commit E &&
-	test_must_fail 	git format-patch --base=auto -1
+	test_must_fail	git format-patch --base=auto -1
 '
 
 test_expect_success 'format-patch format.useAutoBase whenAble history involves criss-cross' '

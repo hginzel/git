@@ -205,13 +205,13 @@ our $highlight_bin = "@HIGHLIGHT_BIN@";
 # information about snapshot formats that gitweb is capable of serving
 our %known_snapshot_formats = (
 	# name => {
-	# 	'display' => display name,
-	# 	'type' => mime type,
-	# 	'suffix' => filename suffix,
-	# 	'format' => --format for git-archive,
-	# 	'compressor' => [compressor command and arguments]
-	# 	                (array reference, optional)
-	# 	'disabled' => boolean (optional)}
+	#	'display' => display name,
+	#	'type' => mime type,
+	#	'suffix' => filename suffix,
+	#	'format' => --format for git-archive,
+	#	'compressor' => [compressor command and arguments]
+	#	                (array reference, optional)
+	#	'disabled' => boolean (optional)}
 	#
 	'tgz' => {
 		'display' => 'tar.gz',
@@ -296,9 +296,9 @@ our %highlight_ext = (
 # $GITWEB_CONFIG as necessary.
 our %feature = (
 	# feature => {
-	# 	'sub' => feature-sub (subroutine),
-	# 	'override' => allow-override (boolean),
-	# 	'default' => [ default options...] (array reference)}
+	#	'sub' => feature-sub (subroutine),
+	#	'override' => allow-override (boolean),
+	#	'default' => [ default options...] (array reference)}
 	#
 	# if feature is overridable (it means that allow-override has true value),
 	# then feature-sub will be called with default options as parameters;
@@ -443,7 +443,7 @@ our %feature = (
 
 	# To enable system wide have in $GITWEB_CONFIG e.g.
 	# $feature{'actions'}{'default'} = [('graphiclog',
-	# 	'/git-browser/by-commit.html?r=%n', 'summary')];
+	#	'/git-browser/by-commit.html?r=%n', 'summary')];
 	# Project specific override is not supported.
 	'actions' => {
 		'override' => 0,

@@ -42,20 +42,20 @@
  * struct git_graph *graph = graph_init(opts);
  *
  * while ((commit = get_revision(opts)) != NULL) {
- * 	while (!graph_is_commit_finished(graph))
- * 	{
- * 		struct strbuf sb;
- * 		int is_commit_line;
+ *	while (!graph_is_commit_finished(graph))
+ *	{
+ *		struct strbuf sb;
+ *		int is_commit_line;
  *
- * 		strbuf_init(&sb, 0);
- * 		is_commit_line = graph_next_line(graph, &sb);
- * 		fputs(sb.buf, stdout);
+ *		strbuf_init(&sb, 0);
+ *		is_commit_line = graph_next_line(graph, &sb);
+ *		fputs(sb.buf, stdout);
  *
- * 		if (is_commit_line)
- * 			log_tree_commit(opts, commit);
- * 		else
- * 			putchar(opts->diffopt.line_termination);
- * 	}
+ *		if (is_commit_line)
+ *			log_tree_commit(opts, commit);
+ *		else
+ *			putchar(opts->diffopt.line_termination);
+ *	}
  * }
  * ------------
  * Sample output

@@ -135,12 +135,12 @@ struct rebase_options {
 	int config_update_refs;
 };
 
-#define REBASE_OPTIONS_INIT {			  	\
-		.type = REBASE_UNSPECIFIED,	  	\
-		.empty = EMPTY_UNSPECIFIED,	  	\
+#define REBASE_OPTIONS_INIT {				\
+		.type = REBASE_UNSPECIFIED,		\
+		.empty = EMPTY_UNSPECIFIED,		\
 		.keep_empty = 1,			\
-		.default_backend = xstrdup("merge"),  	\
-		.flags = REBASE_NO_QUIET, 		\
+		.default_backend = xstrdup("merge"),	\
+		.flags = REBASE_NO_QUIET,		\
 		.git_am_opts = STRVEC_INIT,		\
 		.exec = STRING_LIST_INIT_NODUP,		\
 		.git_format_patch_opt = STRBUF_INIT,	\
@@ -1655,7 +1655,7 @@ int cmd_rebase(int argc,
 	/*
 	 * If the branch to rebase is given, that is the branch we will rebase
 	 * branch_name -- branch/commit being rebased, or
-	 * 		  HEAD (already detached)
+	 *		  HEAD (already detached)
 	 * orig_head -- commit object name of tip of the branch before rebasing
 	 * head_name -- refs/heads/<that-branch> or NULL (detached HEAD)
 	 */

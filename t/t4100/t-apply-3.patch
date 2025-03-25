@@ -25,16 +25,16 @@ diff --git a/Documentation/git-ls-tree.txt b/Documentation/git-ls-tree.txt
  OPTIONS
  -------
  <tree-ish>::
- 	Id of a tree.
+	Id of a tree.
  
 +-d::
 +	show only the named tree entry itself, not its children
 +
  -r::
- 	recurse into sub-trees
+	recurse into sub-trees
  
 @@ -28,18 +31,19 @@ OPTIONS
- 	\0 line termination on output
+	\0 line termination on output
  
  paths::
 -	Optionally, restrict the output of git-ls-tree to specific
@@ -114,9 +114,9 @@ dissimilarity index 82%
 -
 -/*
 - * return:
-- * 	-1 if prefix is *not* a subset of path
-- * 	 0 if prefix == path
-- * 	 1 if prefix is a subset of path
+- *	-1 if prefix is *not* a subset of path
+- *	 0 if prefix == path
+- *	 1 if prefix is a subset of path
 - */
 -static int pathcmp(const char *path, struct path_prefix *prefix)
 -{
@@ -546,21 +546,21 @@ diff --git a/tree.c b/tree.c
 --- a/tree.c
 +++ b/tree.c
 @@ -133,7 +133,7 @@ int parse_tree_buffer(struct tree *item,
- 		}
- 		if (obj)
- 			add_ref(&item->object, obj);
+		}
+		if (obj)
+			add_ref(&item->object, obj);
 -
 +		entry->parent = NULL; /* needs to be filled by the user */
- 		*list_p = entry;
- 		list_p = &entry->next;
- 	}
+		*list_p = entry;
+		list_p = &entry->next;
+	}
 diff --git a/tree.h b/tree.h
 --- a/tree.h
 +++ b/tree.h
 @@ -16,6 +16,7 @@ struct tree_entry_list {
- 		struct tree *tree;
- 		struct blob *blob;
- 	} item;
+		struct tree *tree;
+		struct blob *blob;
+	} item;
 +	struct tree_entry_list *parent;
  };
  

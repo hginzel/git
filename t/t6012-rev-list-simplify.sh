@@ -101,7 +101,7 @@ test_expect_success setup '
 	note L
 '
 
-FMT='tformat:%P 	%H | %s'
+FMT='tformat:%P	%H | %s'
 
 check_outcome () {
 	outcome=$1

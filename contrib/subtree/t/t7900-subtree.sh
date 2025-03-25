@@ -392,11 +392,11 @@ test_expect_success 'split sub dir/ with --rejoin' '
 # - Creates Repo with subtrees 'subA' and 'subB'
 # - Creates commits in the repo including changes to subtrees
 # - Runs the following 'split' and commit' commands in order:
-# 	- Perform 'split' on subtree A
-# 	- Perform 'split' on subtree B
-# 	- Create new commits with changes to subtree A and B
-# 	- Perform split on subtree A
-# 	- Check that the commits in subtree B are not processed
+#	- Perform 'split' on subtree A
+#	- Perform 'split' on subtree B
+#	- Create new commits with changes to subtree A and B
+#	- Perform split on subtree A
+#	- Check that the commits in subtree B are not processed
 #			as part of the subtree A split
 test_expect_success 'split with multiple subtrees' '
 	subtree_test_create_repo "$test_count" &&

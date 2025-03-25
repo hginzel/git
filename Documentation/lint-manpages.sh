@@ -38,7 +38,7 @@ check_missing_docs () (
 		fi
 
 		if ! sed -e '1,/^### command list/d' -e '/^#/d' ../command-list.txt |
-			grep -q "^$v[ 	]"
+			grep -q "^$v[	]"
 		then
 			case "$v" in
 			git)
@@ -60,7 +60,7 @@ check_extraneous_docs () {
 		    -e '/^#/d' \
 		    -e '/guide$/d' \
 		    -e '/interfaces$/d' \
-		    -e 's/[ 	].*//' \
+		    -e 's/[	].*//' \
 		    -e 's/^/listed /' ../command-list.txt
 		make print-man1 |
 		grep '\.adoc$' |

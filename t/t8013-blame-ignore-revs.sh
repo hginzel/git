@@ -5,7 +5,7 @@ test_description='ignore revisions when blaming'
 . ./test-lib.sh
 
 # Creates:
-# 	A--B--X
+#	A--B--X
 # A added line 1 and B added line 2.  X makes changes to those lines.  Sanity
 # check that X is blamed for both lines.
 test_expect_success setup '
@@ -66,7 +66,7 @@ done
 
 # For ignored revs that have added 'unblamable' lines, attribute those to the
 # ignored commit.
-# 	A--B--X--Y
+#	A--B--X--Y
 # Where Y changes lines 1 and 2, and adds lines 3 and 4.  The added lines ought
 # to have nothing in common with "line-one" or "line-two", to keep any
 # heuristics from matching them with any lines in the parent.
@@ -142,7 +142,7 @@ test_expect_success bad_files_and_revs '
 
 # For ignored revs that have added 'unblamable' lines, mark those lines with a
 # '*'
-# 	A--B--X--Y
+#	A--B--X--Y
 # Lines 3 and 4 are from Y and unblamable.  This was set up in
 # ignore_rev_adding_unblamable_lines.
 test_expect_success mark_unblamable_lines '
@@ -159,7 +159,7 @@ test_expect_success mark_unblamable_lines '
 '
 
 # Commit Z will touch the first two lines.  Y touched all four.
-# 	A--B--X--Y--Z
+#	A--B--X--Y--Z
 # The blame output when ignoring Z should be:
 # ?Y ... 1)
 # ?Y ... 2)
@@ -194,7 +194,7 @@ test_expect_success mark_ignored_lines '
 # For ignored revs that added 'unblamable' lines and more recent commits changed
 # the blamable lines, mark the unblamable lines with a
 # '*'
-# 	A--B--X--Y--Z
+#	A--B--X--Y--Z
 # Lines 3 and 4 are from Y and unblamable, as set up in
 # ignore_rev_adding_unblamable_lines.  Z changed lines 1 and 2.
 test_expect_success mark_unblamable_lines_intermediate '

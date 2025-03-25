@@ -71,7 +71,7 @@
 #define platform_SHA_CTX	SHA_CTX
 #define platform_SHA1_Init	SHA1_Init
 #define platform_SHA1_Update	SHA1_Update
-#define platform_SHA1_Final    	SHA1_Final
+#define platform_SHA1_Final	SHA1_Final
 #endif
 
 #ifndef platform_SHA_CTX_unsafe

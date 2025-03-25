@@ -18,13 +18,13 @@ diff --git a/b.c b/b.c
 @@ -4,14 +4,14 @@
  long f(long x)
  {
- 	int s = 0;
- 	while (x) {
+	int s = 0;
+	while (x) {
 -		x >>= 1;
 +		x /= 2;
- 		s++;
- 	}
- 	return s;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -44,12 +44,12 @@ diff --git a/a.c b/a.c
 @@ -4,14 +4,14 @@
  long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -70,12 +70,12 @@ diff --git a/a.c b/a.c
 @@ -3,14 +3,14 @@
  long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -97,12 +97,12 @@ diff --git a/a.c b/a.c
 -int f(int x)
 +long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
  
  /*
@@ -122,11 +122,11 @@ diff --git a/a.c b/a.c
 @@ -3,13 +3,14 @@
  int f(int x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
 +	return s;
  }
  

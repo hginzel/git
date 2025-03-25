@@ -210,11 +210,11 @@ struct git_graph {
 	 * Otherwise, the value is 1 and the layout on the right is used. This
 	 * field tells us how many columns the first parent occupies.
 	 *
-	 * 		0)			1)
+	 *		0)			1)
 	 *
-	 * 		| | | *-.		| | *---.
-	 * 		| |_|/|\ \		| | |\ \ \
-	 * 		|/| | | | |		| | | | | *
+	 *		| | | *-.		| | *---.
+	 *		| |_|/|\ \		| | |\ \ \
+	 *		|/| | | | |		| | | | | *
 	 */
 	int merge_layout;
 	/*
@@ -222,10 +222,10 @@ struct git_graph {
 	 * 2-way and octopus merges, this is usually one less than the
 	 * number of parents:
 	 *
-	 * 		| | |			| |    \
+	 *		| | |			| |    \
 	 *		| * |			| *---. \
 	 *		| |\ \			| |\ \ \ \
-	 *		| | | |         	| | | | | |
+	 *		| | | |	| | | | | |
 	 *
 	 *		num_parents: 2		num_parents: 4
 	 *		edges_added: 1		edges_added: 3
@@ -715,21 +715,21 @@ static int graph_num_expansion_rows(struct git_graph *graph)
 	 * Normally, we need two expansion rows for each dashed parent line from
 	 * an octopus merge:
 	 *
-	 * 		| *
-	 * 		| |\
-	 * 		| | \
-	 * 		| |  \
-	 * 		| *-. \
-	 * 		| |\ \ \
+	 *		| *
+	 *		| |\
+	 *		| | \
+	 *		| |  \
+	 *		| *-. \
+	 *		| |\ \ \
 	 *
 	 * If the merge is skewed to the left, then its parents occupy one less
 	 * column, and we don't need as many expansion rows to route around it;
 	 * in some cases that means we don't need any expansion rows at all:
 	 *
-	 * 		| *
-	 * 		| |\
-	 * 		| * \
-	 * 		|/|\ \
+	 *		| *
+	 *		| |\
+	 *		| * \
+	 *		|/|\ \
 	 */
 	return graph_num_dashed_parents(graph) * 2;
 }

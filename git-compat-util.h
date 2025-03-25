@@ -1235,8 +1235,8 @@ static inline void move_array(void *dst, const void *src, size_t n, size_t size)
  * size_t alloc
  *
  * for (i = 0; i < nr; i++)
- * 	if (we like item[i] already)
- * 		return;
+ *	if (we like item[i] already)
+ *		return;
  *
  * // we did not like any existing one, so add one
  * ALLOC_GROW(item, nr + 1, alloc);

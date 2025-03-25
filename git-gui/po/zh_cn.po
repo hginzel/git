@@ -5,17 +5,17 @@
 #
 # Please use the following translation throughout the file for consistence:
 #
-# 	repository	版本库
-# 	commit		提交
-# 	revision	版本
-# 	branch		分支
-# 	tag		标签
-# 	annotation	标注
-# 	merge		合并
-# 	fast forward	快速合并(??)
-# 	stage		缓存 (译自 index/cache)
-# 	amend		修正
-# 	reset		复位
+#	repository	版本库
+#	commit		提交
+#	revision	版本
+#	branch		分支
+#	tag		标签
+#	annotation	标注
+#	merge		合并
+#	fast forward	快速合并(??)
+#	stage		缓存 (译自 index/cache)
+#	amend		修正
+#	reset		复位
 #
 # 2008-01-06 Eric Miao <eric.y.miao@gmail.com>
 # FIXME: checkout 的标准翻译

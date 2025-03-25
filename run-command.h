@@ -330,21 +330,21 @@ struct async {
 	 * - Specify < 0 to have a pipe allocated; start_async() replaces
 	 *   with the pipe FD in the following way:
 	 *
-	 * 	.in: Returns the writable pipe end into which the caller
-	 * 	writes; the readable end of the pipe becomes the function's
-	 * 	in argument.
+	 *	.in: Returns the writable pipe end into which the caller
+	 *	writes; the readable end of the pipe becomes the function's
+	 *	in argument.
 	 *
-	 * 	.out: Returns the readable pipe end from which the caller
-	 * 	reads; the writable end of the pipe becomes the function's
-	 * 	out argument.
+	 *	.out: Returns the readable pipe end from which the caller
+	 *	reads; the writable end of the pipe becomes the function's
+	 *	out argument.
 	 *
 	 *   The caller of start_async() must close the returned FDs after it
 	 *   has completed reading from/writing from them.
 	 *
 	 * - Specify a file descriptor > 0 to be used by the function:
 	 *
-	 * 	.in: The FD must be readable; it becomes the function's in.
-	 * 	.out: The FD must be writable; it becomes the function's out.
+	 *	.in: The FD must be readable; it becomes the function's in.
+	 *	.out: The FD must be writable; it becomes the function's out.
 	 *
 	 *   The specified FD is closed by start_async(), even if it fails to
 	 *   run the function.

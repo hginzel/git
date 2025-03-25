@@ -30,7 +30,7 @@ struct type_and_oid_list {
 };
 
 #define TYPE_AND_OID_LIST_INIT { \
-	.type = OBJ_NONE, 	 \
+	.type = OBJ_NONE,	 \
 	.oids = OID_ARRAY_INIT	 \
 }
 

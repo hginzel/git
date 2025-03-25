@@ -702,7 +702,7 @@ test_expect_success 'instruction sheet, fat-fingers version' '
 	echo "c" >foo &&
 	git add foo &&
 	git commit &&
-	sed "s/pick \([0-9a-f]*\)/pick 	 \1 	/" .git/sequencer/todo >new_sheet &&
+	sed "s/pick \([0-9a-f]*\)/pick	 \1	/" .git/sequencer/todo >new_sheet &&
 	cp new_sheet .git/sequencer/todo &&
 	git cherry-pick --continue
 '

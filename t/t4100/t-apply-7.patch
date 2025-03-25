@@ -24,16 +24,16 @@ diff a/Documentation/git-ls-tree.txt b/Documentation/git-ls-tree.txt
  OPTIONS
  -------
  <tree-ish>::
- 	Id of a tree.
+	Id of a tree.
  
 +-d::
 +	show only the named tree entry itself, not its children
 +
  -r::
- 	recurse into sub-trees
+	recurse into sub-trees
  
 @@ -28,18 +31,19 @@ OPTIONS
- 	\0 line termination on output
+	\0 line termination on output
  
  paths::
 -	Optionally, restrict the output of git-ls-tree to specific
@@ -143,15 +143,15 @@ diff a/ls-tree.c b/ls-tree.c
 +		/* Set up the parent link */
 +		for (e = elem->item.tree->entries; e; e = e->next)
 +			e->parent = elem;
- 	}
+	}
 +	return 0;
  }
  
 -/*
 - * return:
-- * 	-1 if prefix is *not* a subset of path
-- * 	 0 if prefix == path
-- * 	 1 if prefix is a subset of path
+- *	-1 if prefix is *not* a subset of path
+- *	 0 if prefix == path
+- *	 1 if prefix is a subset of path
 - */
 -static int pathcmp(const char *path, struct path_prefix *prefix)
 -{
@@ -227,7 +227,7 @@ diff a/ls-tree.c b/ls-tree.c
 +	if (e->parent && e->parent != &root_entry) {
 +		show_entry_name(e->parent);
 +		putchar('/');
- 	}
+	}
 +	printf("%s", e->name);
 +}
  
@@ -351,7 +351,7 @@ diff a/ls-tree.c b/ls-tree.c
 +		 *     are grandchildren for the original request).
 +		 *  b. With -r.  We continue to recurse into our children.
 +		 *  c. With -d.  We should not have come here to begin with.
- 		 */
+		 */
 -		if (mtype == 0)
 -			mindex++;
 -
@@ -363,7 +363,7 @@ diff a/ls-tree.c b/ls-tree.c
 +		else if (level && ls_options & LS_RECURSIVE)
 +			/* case (2)-b */
 +			err = err | show_children(e, level+1);
- 	}
+	}
 +	return err;
  }
  
@@ -421,32 +421,32 @@ diff a/ls-tree.c b/ls-tree.c
  {
 +	static char *path0[] = { "", NULL };
 +	char **path;
- 	unsigned char sha1[20];
+	unsigned char sha1[20];
  
- 	while (1 < argc && argv[1][0] == '-') {
+	while (1 < argc && argv[1][0] == '-') {
 @@ -194,7 +223,10 @@ int main(int argc, char **argv)
- 			line_termination = 0;
- 			break;
- 		case 'r':
+			line_termination = 0;
+			break;
+		case 'r':
 -			recursive = 1;
 +			ls_options |= LS_RECURSIVE;
 +			break;
 +		case 'd':
 +			ls_options |= LS_TREE_ONLY;
- 			break;
- 		default:
- 			usage(ls_tree_usage);
+			break;
+		default:
+			usage(ls_tree_usage);
 @@ -206,7 +238,10 @@ int main(int argc, char **argv)
- 		usage(ls_tree_usage);
- 	if (get_sha1(argv[1], sha1) < 0)
- 		usage(ls_tree_usage);
+		usage(ls_tree_usage);
+	if (get_sha1(argv[1], sha1) < 0)
+		usage(ls_tree_usage);
 -	if (list(sha1, &argv[2]) < 0)
 +
 +	path = (argc == 2) ? path0 : (argv + 2);
 +	prepare_root(sha1);
 +	if (list(path) < 0)
- 		die("list failed");
- 	return 0;
+		die("list failed");
+	return 0;
  }
 diff a/t/t3100-ls-tree-restrict.sh b/t/t3100-ls-tree-restrict.sh
 --- a/t/t3100-ls-tree-restrict.sh
@@ -473,21 +473,21 @@ diff a/tree.c b/tree.c
 --- a/tree.c
 +++ b/tree.c
 @@ -133,7 +133,7 @@ int parse_tree_buffer(struct tree *item,
- 		}
- 		if (obj)
- 			add_ref(&item->object, obj);
+		}
+		if (obj)
+			add_ref(&item->object, obj);
 -
 +		entry->parent = NULL; /* needs to be filled by the user */
- 		*list_p = entry;
- 		list_p = &entry->next;
- 	}
+		*list_p = entry;
+		list_p = &entry->next;
+	}
 diff a/tree.h b/tree.h
 --- a/tree.h
 +++ b/tree.h
 @@ -16,6 +16,7 @@ struct tree_entry_list {
- 		struct tree *tree;
- 		struct blob *blob;
- 	} item;
+		struct tree *tree;
+		struct blob *blob;
+	} item;
 +	struct tree_entry_list *parent;
  };
  

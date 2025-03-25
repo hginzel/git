@@ -318,7 +318,7 @@ relative_path /foo/a/c		/foo/a/b/	../c
 relative_path /foo/a/c		/foo/a/b	../c
 relative_path /foo/x/y		/foo/a/b/	../../x/y
 relative_path /foo/a/b		"<empty>"	/foo/a/b
-relative_path /foo/a/b 		"<null>"	/foo/a/b
+relative_path /foo/a/b		"<null>"	/foo/a/b
 relative_path foo/a/b/c/	foo/a/b/	c/
 relative_path foo/a/b/c/	foo/a/b		c/
 relative_path foo/a/b//c	foo/a//b	c
@@ -332,7 +332,7 @@ relative_path /foo/a/b		foo/x/y		/foo/a/b
 relative_path d:/a/b		D:/a/c		../b		MINGW
 relative_path C:/a/b		D:/a/c		C:/a/b		MINGW
 relative_path foo/a/b		"<empty>"	foo/a/b
-relative_path foo/a/b 		"<null>"	foo/a/b
+relative_path foo/a/b		"<null>"	foo/a/b
 relative_path "<empty>"		/foo/a/b	./
 relative_path "<empty>"		"<empty>"	./
 relative_path "<empty>"		"<null>"	./

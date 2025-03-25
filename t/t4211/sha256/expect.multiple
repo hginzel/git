@@ -10,8 +10,8 @@ diff --git a/a.c b/a.c
 @@ -18,5 +18,7 @@
  int main ()
  {
- 	printf("%ld\n", f(15));
- 	return 0;
+	printf("%ld\n", f(15));
+	return 0;
 -}
 \ No newline at end of file
 +}
@@ -30,8 +30,8 @@ diff --git a/a.c b/a.c
 @@ -18,5 +18,5 @@
  int main ()
  {
- 	printf("%ld\n", f(15));
- 	return 0;
+	printf("%ld\n", f(15));
+	return 0;
 -}
 +}
 \ No newline at end of file
@@ -49,19 +49,19 @@ diff --git a/a.c b/a.c
 -int f(int x)
 +long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
 @@ -17,5 +17,5 @@
  int main ()
  {
 -	printf("%d\n", f(15));
 +	printf("%ld\n", f(15));
- 	return 0;
+	return 0;
  }
 
 commit f6434acd34260a6c9f61e96d96bf9a323d330561df5b1ca2631104f82026dfed
@@ -76,11 +76,11 @@ diff --git a/a.c b/a.c
 @@ -3,8 +3,9 @@
  int f(int x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
 +	return s;
  }
 

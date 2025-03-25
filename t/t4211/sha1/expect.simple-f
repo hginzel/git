@@ -11,12 +11,12 @@ diff --git a/a.c b/a.c
 -int f(int x)
 +long f(long x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
- 	return s;
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
+	return s;
  }
 
 commit f04fb20f2c77850996cba739709acc6faecc58f7
@@ -31,11 +31,11 @@ diff --git a/a.c b/a.c
 @@ -3,8 +3,9 @@
  int f(int x)
  {
- 	int s = 0;
- 	while (x) {
- 		x >>= 1;
- 		s++;
- 	}
+	int s = 0;
+	while (x) {
+		x >>= 1;
+		s++;
+	}
 +	return s;
  }
 

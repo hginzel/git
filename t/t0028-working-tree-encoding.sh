@@ -141,7 +141,7 @@ do
 		cp crlf.utf${i}.raw eol.utf${i} &&
 
 		cat >expectIndexLF <<-EOF &&
-			i/lf    w/-text attr/text             	eol.utf${i}
+			i/lf    w/-text attr/text	eol.utf${i}
 		EOF
 
 		git add eol.utf${i} &&

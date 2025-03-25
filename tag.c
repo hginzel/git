@@ -194,7 +194,7 @@ int parse_tag_buffer(struct repository *r, struct tag *item, const void *data, u
 			     oid_to_hex(&item->object.oid));
 
 	if (bufptr + 4 < tail && starts_with(bufptr, "tag "))
-		; 		/* good */
+		;		/* good */
 	else
 		return -1;
 	bufptr += 4;

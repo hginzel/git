@@ -41,7 +41,7 @@ Hopefully this would fix the problem stated there.
 
 
 I have included an extra blank line above, but it does not have to be
-stripped away here, along with the               		   
+stripped away here, along with the		   
 whitespaces at the end of the above line.  They are expected to be squashed
 when the message is made into a commit log by stripspace,
 Also, there are three blank lines after this paragraph,
@@ -126,7 +126,7 @@ diff --git a/connect.c b/connect.c
 --- a/connect.c
 +++ b/connect.c
 @@ -96,42 +96,57 @@ static enum protocol get_protocol(const 
- 	die("I don't handle protocol '%s'", name);
+	die("I don't handle protocol '%s'", name);
  }
  
 -static void lookup_host(const char *host, struct sockaddr *in)
@@ -193,23 +193,23 @@ diff --git a/connect.c b/connect.c
 +			close(sockfd);
 +			sockfd = -1;
 +			continue;
- 		}
+		}
 +		break;
- 	}
+	}
  
 -	lookup_host(host, &addr);
 -	((struct sockaddr_in *)&addr)->sin_port = htons(port);
 +	freeaddrinfo(ai0);
  
 -	sockfd = socket(PF_INET, SOCK_STREAM, IPPROTO_IP);
- 	if (sockfd < 0)
- 		die("unable to create socket (%s)", strerror(errno));
+	if (sockfd < 0)
+		die("unable to create socket (%s)", strerror(errno));
 -	if (connect(sockfd, (void *)&addr, sizeof(addr)) < 0)
 -		die("unable to connect (%s)", strerror(errno));
 +
- 	fd[0] = sockfd;
- 	fd[1] = sockfd;
- 	packet_write(sockfd, "%s %s\n", prog, path);
+	fd[0] = sockfd;
+	fd[1] = sockfd;
+	packet_write(sockfd, "%s %s\n", prog, path);
 
 -- 
 YOSHIFUJI Hideaki @ USAGI Project  <yoshfuji@linux-ipv6.org>
@@ -259,28 +259,28 @@ diff --git a/Documentation/git-cvsimport-script.txt b/Documentation/git=
 --- a/Documentation/git-cvsimport-script.txt
 +++ b/Documentation/git-cvsimport-script.txt
 @@ -29,6 +29,10 @@ OPTIONS
- 	currently, only the :local:, :ext: and :pserver: access methods=20
- 	are supported.
+	currently, only the :local:, :ext: and :pserver: access methods=20
+	are supported.
 =20
 +-C <target-dir>::
 +        The GIT repository to import to.  If the directory doesn't
 +        exist, it will be created.  Default is the current directory.
 +
  -i::
- 	Import-only: don't perform a checkout after importing.  This option
- 	ensures the working directory and cache remain untouched and will
+	Import-only: don't perform a checkout after importing.  This option
+	ensures the working directory and cache remain untouched and will
 @@ -44,7 +48,7 @@ OPTIONS
 =20
  -p <options-for-cvsps>::
- 	Additional options for cvsps.
+	Additional options for cvsps.
 -	The options '-x' and '-A' are implicit and should not be used here.
 +	The options '-u' and '-A' are implicit and should not be used here.
 =20
- 	If you need to pass multiple options, separate them with a comma.
+	If you need to pass multiple options, separate them with a comma.
 =20
 @@ -57,6 +61,9 @@ OPTIONS
  -h::
- 	Print a short usage message and exit.
+	Print a short usage message and exit.
 =20
 +-z <fuzz>::
 +        Pass the timestamp fuzz factor to cvsps.
@@ -292,27 +292,27 @@ diff --git a/git-cvsimport-script b/git-cvsimport-script
 --- a/git-cvsimport-script
 +++ b/git-cvsimport-script
 @@ -190,7 +190,7 @@ sub conn {
- 	$self->{'socketo'}->write("Root $repo\n");
+	$self->{'socketo'}->write("Root $repo\n");
 =20
- 	# Trial and error says that this probably is the minimum set
+	# Trial and error says that this probably is the minimum set
 -	$self->{'socketo'}->write("Valid-responses ok error Valid-requests Mo=
 de M Mbinary E F Checked-in Created Updated Merged Removed\n");
 +	$self->{'socketo'}->write("Valid-responses ok error Valid-requests Mo=
 de M Mbinary E Checked-in Created Updated Merged Removed\n");
 =20
- 	$self->{'socketo'}->write("valid-requests\n");
- 	$self->{'socketo'}->flush();
+	$self->{'socketo'}->write("valid-requests\n");
+	$self->{'socketo'}->flush();
 @@ -691,7 +691,7 @@ while(<CVS>) {
- 		unlink($tmpname);
- 		my $mode =3D pmode($cvs->{'mode'});
- 		push(@new,[$mode, $sha, $fn]); # may be resurrected!
+		unlink($tmpname);
+		my $mode =3D pmode($cvs->{'mode'});
+		push(@new,[$mode, $sha, $fn]); # may be resurrected!
 -	} elsif($state =3D=3D 9 and /^\s+(\S+):\d(?:\.\d+)+->(\d(?:\.\d+)+)\(=
 DEAD\)\s*$/) {
 +	} elsif($state =3D=3D 9 and /^\s+(\S+):\d+(?:\.\d+)+->(\d+(?:\.\d+)+)=
 \(DEAD\)\s*$/) {
- 		my $fn =3D $1;
- 		$fn =3D~ s#^/+##;
- 		push(@old,$fn);
+		my $fn =3D $1;
+		$fn =3D~ s#^/+##;
+		push(@old,$fn);
 
 --=20
 David K=E5gedal
@@ -457,14 +457,14 @@ index 962aa34..2d1520f 100644
 --- a/builtin-mailinfo.c
 +++ b/builtin-mailinfo.c
 @@ -334,7 +334,7 @@ static int check_header(char *line, unsigned linesize, char **hdr_data, int over
- 		return 1;
- 	if (!memcmp("[PATCH]", line, 7) && isspace(line[7])) {
- 		for (i = 0; header[i]; i++) {
+		return 1;
+	if (!memcmp("[PATCH]", line, 7) && isspace(line[7])) {
+		for (i = 0; header[i]; i++) {
 -			if (!memcmp("Subject: ", header[i], 9)) {
 +			if (!memcmp("Subject", header[i], 7)) {
- 				if (! handle_header(line, hdr_data[i], 0)) {
- 					return 1;
- 				}
+				if (! handle_header(line, hdr_data[i], 0)) {
+					return 1;
+				}
 -- 
 1.5.6.2.455.g1efb2
 
@@ -489,16 +489,16 @@ index 3e5fe51..aabfe5c 100644
 --- a/builtin-mailinfo.c
 +++ b/builtin-mailinfo.c
 @@ -758,8 +758,8 @@ static void handle_body(void)
- 		/* process any boundary lines */
- 		if (*content_top && is_multipart_boundary(&line)) {
- 			/* flush any leftover */
+		/* process any boundary lines */
+		if (*content_top && is_multipart_boundary(&line)) {
+			/* flush any leftover */
 -			if (line.len)
 -				handle_filter(&line);
 +			if (prev.len)
 +				handle_filter(&prev);
 =20
- 			if (!handle_boundary())
- 				goto handle_body_out;
+			if (!handle_boundary())
+				goto handle_body_out;
 --=20
 1.6.0.rc2
 
@@ -595,7 +595,7 @@ index b0b5d8f..461c47e 100644
 --- a/builtin-mailinfo.c
 +++ b/builtin-mailinfo.c
 @@ -712,6 +712,34 @@ static inline int patchbreak(const struct strbuf *line)
- 	return 0;
+	return 0;
  }
  
 +static int scissors(const struct strbuf *line)
@@ -628,16 +628,16 @@ index b0b5d8f..461c47e 100644
 +
  static int handle_commit_msg(struct strbuf *line)
  {
- 	static int still_looking = 1;
+	static int still_looking = 1;
 @@ -723,10 +751,17 @@ static int handle_commit_msg(struct strbuf *line)
- 		strbuf_ltrim(line);
- 		if (!line->len)
- 			return 0;
+		strbuf_ltrim(line);
+		if (!line->len)
+			return 0;
 -		if ((still_looking = check_header(line, s_hdr_data, 0)) != 0)
 +		still_looking = check_header(line, s_hdr_data, 0);
 +		if (still_looking)
- 			return 0;
- 	}
+			return 0;
+	}
  
 +	if (scissors(line)) {
 +		fseek(cmitmsg, 0L, SEEK_SET);
@@ -645,9 +645,9 @@ index b0b5d8f..461c47e 100644
 +		return 0;
 +	}
 +
- 	/* normalize the log message to UTF-8. */
- 	if (metainfo_charset)
- 		convert_to_utf8(line, charset.buf);
+	/* normalize the log message to UTF-8. */
+	if (metainfo_charset)
+		convert_to_utf8(line, charset.buf);
 -- 
 1.6.4.1
 From nobody Mon Sep 17 00:00:00 2001

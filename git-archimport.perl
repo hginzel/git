@@ -1020,7 +1020,7 @@ sub find_parents {
 	my $otherbranchtip = git_rev_parse($branch);
 	my @needraw = `git-rev-list --topo-order $otherbranchtip ^$mergebase`;
 	my @need;
-	foreach my $needps (@needraw) { 	# get the psets
+	foreach my $needps (@needraw) {	# get the psets
 	    $needps = commitid2pset($needps);
 	    # git-rev-list will also
 	    # list commits merged in via earlier

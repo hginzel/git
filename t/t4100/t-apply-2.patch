@@ -5,12 +5,12 @@ diff --git a/Makefile b/Makefile
 @@ -20,7 +20,7 @@ INSTALL=install
  
  SCRIPTS=git-apply-patch-script git-merge-one-file-script git-prune-script \
- 	git-pull-script git-tag-script git-resolve-script git-whatchanged \
+	git-pull-script git-tag-script git-resolve-script git-whatchanged \
 -	git-deltafy-script
 +	git-deltafy-script git-fetch-script
  
  PROG=   git-update-index git-diff-files git-init-db git-write-tree \
- 	git-read-tree git-commit-tree git-cat-file git-fsck-cache \
+	git-read-tree git-commit-tree git-cat-file git-fsck-cache \
 diff --git a/git-pull-script b/git-fetch-script
 similarity index 87%
 copy from git-pull-script
@@ -69,4 +69,4 @@ diff --git a/git-pull-script b/git-pull-script
 +git-fetch-script "$merge_repo" "$merge_name"
  
  git-resolve-script \
- 	"$(cat "$GIT_DIR"/HEAD)" \
+	"$(cat "$GIT_DIR"/HEAD)" \

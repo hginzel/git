@@ -529,7 +529,7 @@ void compute_diffstat(struct diff_options *options, struct diffstat_t *diffstat,
 		      struct diff_queue_struct *q);
 void free_diffstat_info(struct diffstat_t *diffstat);
 
-#define DIFF_SETUP_REVERSE      	1
+#define DIFF_SETUP_REVERSE	1
 #define DIFF_SETUP_USE_SIZE_CACHE	4
 
 /*

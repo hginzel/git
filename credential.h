@@ -20,9 +20,9 @@ struct repository;
  * |.......................|
  * | C credential API      |--- prompt ---> User
  * +-----------------------+
- * 	^      |
- * 	| pipe |
- * 	|      v
+ *	^      |
+ *	| pipe |
+ *	|      v
  * +-----------------------+
  * | Git credential helper |
  * +-----------------------+
@@ -56,9 +56,9 @@ struct repository;
  * -----------------------------------------------------------------------
  * int foo_login(struct foo_connection *f)
  * {
- * 	int status;
- * 	// Create a credential with some context; we don't yet know the
- * 	// username or password.
+ *	int status;
+ *	// Create a credential with some context; we don't yet know the
+ *	// username or password.
  *
  * struct credential c = CREDENTIAL_INIT;
  * c.protocol = xstrdup("foo");

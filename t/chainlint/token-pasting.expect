@@ -22,6 +22,6 @@
 23 echo "content-test3 - filename with special characters" >"test3 'sq',$x=.o" ?!LINT: missing '&&'?!
 24 
 25 downstream_url_for_sed=$(
-26 	printf "%sn" "$downstream_url" |
-27 	sed -e 's/\/\\/g' -e 's/[[/.*^$]/\&/g'
+26	printf "%sn" "$downstream_url" |
+27	sed -e 's/\/\\/g' -e 's/[[/.*^$]/\&/g'
 28 )

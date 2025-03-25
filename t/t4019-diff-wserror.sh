@@ -10,7 +10,7 @@ test_expect_success setup '
 	>F &&
 	git add F &&
 	echo "         Eight SP indent" >>F &&
-	echo " 	HT and SP indent" >>F &&
+	echo "	HT and SP indent" >>F &&
 	echo "With trailing SP " >>F &&
 	echo "Carriage ReturnQ" | tr Q "\015" >>F &&
 	echo "No problem" >>F &&

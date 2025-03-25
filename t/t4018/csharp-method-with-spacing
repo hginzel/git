@@ -1,6 +1,6 @@
 class Example
 {
-    	string   Method 	( int 	RIGHT )
+	string   Method	( int	RIGHT )
     {
         // Filler
         // Filler

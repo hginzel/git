@@ -30,7 +30,7 @@ SHA1=$3
 #  ,|template,)
 #    @PERL_PATH@ -i.bak -pe '
 #       print "\n" . `git diff --cached --name-status -r`
-# 	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
+#	 if /^#/ && $first++ == 0' "$COMMIT_MSG_FILE" ;;
 #  *) ;;
 # esac
 

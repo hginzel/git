@@ -85,10 +85,10 @@ test_expect_success "proc-receive: process all refs ($PROTOCOL/porcelain)" '
 	> remote: post-receive< <COMMIT-A> <COMMIT-B> refs/pull/123/head        Z
 	> remote: post-receive< <COMMIT-B> <COMMIT-A> refs/pull/124/head        Z
 	> To <URL/of/upstream.git>
-	>  	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
+	>	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
 	> -	:refs/heads/foo	[deleted]
 	> +	HEAD:refs/heads/main	<COMMIT-B>...<COMMIT-A> (forced update)
-	>  	HEAD:refs/pull/123/head	<COMMIT-A>..<COMMIT-B>
+	>	HEAD:refs/pull/123/head	<COMMIT-A>..<COMMIT-B>
 	> +	HEAD:refs/pull/124/head	<COMMIT-B>...<COMMIT-A> (forced update)
 	> Done
 	EOF

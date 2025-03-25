@@ -26,11 +26,11 @@
  * get_string -> print string value for the entered key or die
  *
  * configset_get_value -> returns value with the highest priority for the entered key
- * 			from a config_set constructed from files entered as arguments.
+ *			from a config_set constructed from files entered as arguments.
  *
  * configset_get_value_multi -> returns value_list for the entered key sorted in
- * 				ascending order of priority from a config_set
- * 				constructed from files entered as arguments.
+ *				ascending order of priority from a config_set
+ *				constructed from files entered as arguments.
  *
  * iterate -> iterate over all values using git_config(), and print some
  *            data for each
@@ -41,7 +41,7 @@
  * Examples:
  *
  * To print the value with highest priority for key "foo.bAr Baz.rock":
- * 	test-tool config get_value "foo.bAr Baz.rock"
+ *	test-tool config get_value "foo.bAr Baz.rock"
  *
  */
 

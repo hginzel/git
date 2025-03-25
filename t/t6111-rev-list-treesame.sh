@@ -24,7 +24,7 @@ note () {
 
 unnote () {
 	git name-rev --tags --annotate-stdin | \
-	sed -e "s|$OID_REGEX (tags/\([^)]*\))\([ 	]\)|\1\2|g"
+	sed -e "s|$OID_REGEX (tags/\([^)]*\))\([	]\)|\1\2|g"
 }
 
 test_expect_success setup '

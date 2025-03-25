@@ -8,11 +8,11 @@ prepare_test_file () {
 
 	# A line that has character X is touched iff RULE is in effect:
 	#       X  RULE
-	#   	!  trailing-space
-	#   	@  space-before-tab
-	#   	#  indent-with-non-tab (default tab width 8)
+	#	!  trailing-space
+	#	@  space-before-tab
+	#	#  indent-with-non-tab (default tab width 8)
 	#	=  indent-with-non-tab,tabwidth=16
-	#   	%  tab-in-indent
+	#	%  tab-in-indent
 	sed -e "s/_/ /g" -e "s/>/	/" <<-\EOF
 		An_SP in an ordinary line>and a HT.
 		>A HT (%).

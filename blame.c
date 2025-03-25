@@ -401,7 +401,7 @@ struct fingerprint_entry {
 
 /* See `struct fingerprint` for an explanation of what a fingerprint is.
  * \param result the fingerprint of the string is stored here. This must be
- * 		 freed later using free_fingerprint.
+ *		 freed later using free_fingerprint.
  * \param line_begin the start of the string
  * \param line_end the end of the string
  */
@@ -591,8 +591,8 @@ static int map_line_number(int line_number,
  *			 frame of reference as line_a. This value defines
  *			 where similarities is centered for the line in B.
  * \param max_search_distance_a maximum distance in lines from the closest line
- * 				in A for other lines in A for which
- * 				similarities may be calculated.
+ *				in A for other lines in A for which
+ *				similarities may be calculated.
  */
 static int *get_similarity(int *similarities,
 			   int line_a, int local_line_b,
@@ -616,20 +616,20 @@ static int *get_similarity(int *similarities,
  * \param start_a the index of the first line of the chunk in A
  * \param length_a the length in lines of the chunk in A
  * \param local_line_b the index of the line in B, relative to the first line
- * 		       in the chunk.
+ *		       in the chunk.
  * \param fingerprints_a array of fingerprints for the chunk in A
  * \param fingerprints_b array of fingerprints for the chunk in B
  * \param similarities 2-dimensional array of similarities between lines in A
- * 		       and B. See get_similarity() for more details.
+ *		       and B. See get_similarity() for more details.
  * \param certainties array of values indicating how strongly a line in B is
- * 		      matched with some line in A.
+ *		      matched with some line in A.
  * \param second_best_result array of absolute indices in A for the second
- * 			     closest match of a line in B.
+ *			     closest match of a line in B.
  * \param result array of absolute indices in A for the closest match of a line
- * 		 in B.
+ *		 in B.
  * \param max_search_distance_a maximum distance in lines from the closest line
- * 				in A for other lines in A for which
- * 				similarities may be calculated.
+ *				in A for other lines in A for which
+ *				similarities may be calculated.
  * \param map_line_number_in_b_to_a parameter to map_line_number().
  */
 static void find_best_line_matches(
@@ -735,30 +735,30 @@ static void find_best_line_matches(
  * that partition. In this way we avoid lines appearing out of order, and
  * retain a sensible line ordering.
  * \param start_a index of the first line in A with which lines in B may be
- * 		  compared.
+ *		  compared.
  * \param start_b index of the first line in B for which matching should be
- * 		  done.
+ *		  done.
  * \param length_a number of lines in A with which lines in B may be compared.
  * \param length_b number of lines in B for which matching should be done.
  * \param fingerprints_a mutable array of fingerprints in A. The first element
- * 			 corresponds to the line at start_a.
+ *			 corresponds to the line at start_a.
  * \param fingerprints_b array of fingerprints in B. The first element
- * 			 corresponds to the line at start_b.
+ *			 corresponds to the line at start_b.
  * \param similarities 2-dimensional array of similarities between lines in A
- * 		       and B. See get_similarity() for more details.
+ *		       and B. See get_similarity() for more details.
  * \param certainties array of values indicating how strongly a line in B is
- * 		      matched with some line in A.
+ *		      matched with some line in A.
  * \param second_best_result array of absolute indices in A for the second
- * 			     closest match of a line in B.
+ *			     closest match of a line in B.
  * \param result array of absolute indices in A for the closest match of a line
- * 		 in B.
+ *		 in B.
  * \param max_search_distance_a maximum distance in lines from the closest line
- * 			      in A for other lines in A for which
- * 			      similarities may be calculated.
+ *			      in A for other lines in A for which
+ *			      similarities may be calculated.
  * \param max_search_distance_b an upper bound on the greatest possible
- * 			      distance between lines in B such that they will
+ *			      distance between lines in B such that they will
  *                              both be compared with the same line in A
- * 			      according to max_search_distance_a.
+ *			      according to max_search_distance_a.
  * \param map_line_number_in_b_to_a parameter to map_line_number().
  */
 static void fuzzy_find_matching_lines_recurse(

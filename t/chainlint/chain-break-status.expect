@@ -3,7 +3,7 @@
 4 
 5 { test-tool sigchain >actual; ret=$?; } &&
 6 {
-7 	test_match_signal 15 "$ret" ||
-8 	test "$ret" = 3
+7	test_match_signal 15 "$ret" ||
+8	test "$ret" = 3
 9 } &&
 10 test_cmp expect actual

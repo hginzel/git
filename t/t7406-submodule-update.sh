@@ -210,7 +210,7 @@ test_expect_success 'submodule update should fail due to local changes' '
 	) &&
 	sed "s/^> //" >expect <<-\EOF &&
 	> error: Your local changes to the following files would be overwritten by checkout:
-	> 	file
+	>	file
 	> Please commit your changes or stash them before you switch branches.
 	> Aborting
 	> fatal: Unable to checkout OID in submodule path '\''submodule'\''

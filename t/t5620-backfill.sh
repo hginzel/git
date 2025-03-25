@@ -44,7 +44,7 @@ test_expect_success 'setup bare clone for server' '
 # do basic partial clone from "srv.bare"
 test_expect_success 'do partial clone 1, backfill gets all objects' '
 	git clone --no-checkout --filter=blob:none	\
-		--single-branch --branch=main 		\
+		--single-branch --branch=main		\
 		"file://$(pwd)/srv.bare" backfill1 &&
 
 	# Backfill with no options gets everything reachable from HEAD.
@@ -61,7 +61,7 @@ test_expect_success 'do partial clone 1, backfill gets all objects' '
 
 test_expect_success 'do partial clone 2, backfill min batch size' '
 	git clone --no-checkout --filter=blob:none	\
-		--single-branch --branch=main 		\
+		--single-branch --branch=main		\
 		"file://$(pwd)/srv.bare" backfill2 &&
 
 	GIT_TRACE2_EVENT="$(pwd)/batch-trace" git \
@@ -85,7 +85,7 @@ test_expect_success 'backfill --sparse without sparse-checkout fails' '
 
 test_expect_success 'backfill --sparse' '
 	git clone --sparse --filter=blob:none		\
-		--single-branch --branch=main 		\
+		--single-branch --branch=main		\
 		"file://$(pwd)/srv.bare" backfill3 &&
 
 	# Initial checkout includes four files at root.
@@ -121,7 +121,7 @@ test_expect_success 'backfill --sparse' '
 
 test_expect_success 'backfill --sparse without cone mode (positive)' '
 	git clone --no-checkout --filter=blob:none		\
-		--single-branch --branch=main 		\
+		--single-branch --branch=main		\
 		"file://$(pwd)/srv.bare" backfill4 &&
 
 	# No blobs yet
@@ -149,7 +149,7 @@ test_expect_success 'backfill --sparse without cone mode (positive)' '
 
 test_expect_success 'backfill --sparse without cone mode (negative)' '
 	git clone --no-checkout --filter=blob:none		\
-		--single-branch --branch=main 		\
+		--single-branch --branch=main		\
 		"file://$(pwd)/srv.bare" backfill5 &&
 
 	# No blobs yet

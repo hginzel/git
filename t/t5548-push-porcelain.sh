@@ -145,7 +145,7 @@ run_git_push_porcelain_output_test() {
 		format_and_save_expect <<-\EOF &&
 		> To <URL/of/upstream.git>
 		> =	refs/heads/baz:refs/heads/baz	[up to date]
-		>  	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
+		>	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
 		> -	:refs/heads/foo	[deleted]
 		> *	refs/heads/next:refs/heads/next	[new branch]
 		> !	refs/heads/main:refs/heads/main	[rejected] (non-fast-forward)
@@ -179,7 +179,7 @@ run_git_push_porcelain_output_test() {
 		format_and_save_expect <<-EOF &&
 		> To <URL/of/upstream.git>
 		> =	refs/heads/baz:refs/heads/baz	[up to date]
-		>  	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
+		>	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
 		> -	:refs/heads/foo	[deleted]
 		> +	refs/heads/main:refs/heads/main	<COMMIT-B>...<COMMIT-A> (forced update)
 		> *	refs/heads/next:refs/heads/next	[new branch]
@@ -316,7 +316,7 @@ run_git_push_porcelain_output_test() {
 		format_and_save_expect <<-\EOF &&
 		> To <URL/of/upstream.git>
 		> =	refs/heads/baz:refs/heads/baz	[up to date]
-		>  	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
+		>	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
 		> -	:refs/heads/foo	[deleted]
 		> +	refs/heads/main:refs/heads/main	<COMMIT-B>...<COMMIT-A> (forced update)
 		> *	refs/heads/next:refs/heads/next	[new branch]
@@ -362,7 +362,7 @@ run_git_push_dry_run_porcelain_output_test() {
 		format_and_save_expect <<-EOF &&
 		> To <URL/of/upstream.git>
 		> =	refs/heads/baz:refs/heads/baz	[up to date]
-		>  	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
+		>	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
 		> -	:refs/heads/foo	[deleted]
 		> *	refs/heads/next:refs/heads/next	[new branch]
 		> !	refs/heads/main:refs/heads/main	[rejected] (non-fast-forward)
@@ -395,7 +395,7 @@ run_git_push_dry_run_porcelain_output_test() {
 		format_and_save_expect <<-EOF &&
 		> To <URL/of/upstream.git>
 		> =	refs/heads/baz:refs/heads/baz	[up to date]
-		>  	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
+		>	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
 		> -	:refs/heads/foo	[deleted]
 		> +	refs/heads/main:refs/heads/main	<COMMIT-B>...<COMMIT-A> (forced update)
 		> *	refs/heads/next:refs/heads/next	[new branch]
@@ -461,7 +461,7 @@ run_git_push_dry_run_porcelain_output_test() {
 		format_and_save_expect <<-EOF &&
 		> To <URL/of/upstream.git>
 		> =	refs/heads/baz:refs/heads/baz	[up to date]
-		>  	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
+		>	<COMMIT-B>:refs/heads/bar	<COMMIT-A>..<COMMIT-B>
 		> -	:refs/heads/foo	[deleted]
 		> +	refs/heads/main:refs/heads/main	<COMMIT-B>...<COMMIT-A> (forced update)
 		> *	refs/heads/next:refs/heads/next	[new branch]

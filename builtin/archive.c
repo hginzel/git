@@ -70,8 +70,8 @@ static int run_remote_archiver(int argc, const char **argv,
 	return !!rv;
 }
 
-#define PARSE_OPT_KEEP_ALL ( PARSE_OPT_KEEP_DASHDASH | 	\
-			     PARSE_OPT_KEEP_ARGV0 | 	\
+#define PARSE_OPT_KEEP_ALL ( PARSE_OPT_KEEP_DASHDASH |	\
+			     PARSE_OPT_KEEP_ARGV0 |	\
 			     PARSE_OPT_KEEP_UNKNOWN_OPT |	\
 			     PARSE_OPT_NO_INTERNAL_HELP	)
 

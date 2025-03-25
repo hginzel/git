@@ -11,14 +11,14 @@ test_expect_success 'setup' '
 	# a non-trivial custom pattern
 	git config diff.custom1.funcname "!static
 !String
-[^ 	].*s.*" &&
+[^	].*s.*" &&
 
 	# a custom pattern which matches to end of line
 	git config diff.custom2.funcname "......Beer\$" &&
 
 	# alternation in pattern
 	git config diff.custom3.funcname "Beer$" &&
-	git config diff.custom3.xfuncname "^[ 	]*((public|static).*)$" &&
+	git config diff.custom3.xfuncname "^[	]*((public|static).*)$" &&
 
 	# for regexp compilation tests
 	echo A >A.java &&

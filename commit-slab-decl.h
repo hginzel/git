@@ -6,7 +6,7 @@
 #define COMMIT_SLAB_SIZE (512*1024-32)
 #endif
 
-#define declare_commit_slab(slabname, elemtype) 			\
+#define declare_commit_slab(slabname, elemtype)			\
 									\
 struct slabname {							\
 	unsigned slab_size;						\

@@ -69,16 +69,16 @@ diff --git a/Documentation/git.txt b/Documentation/git.txt
 +++ b/Documentation/git.txt
 @@ -148,7 +148,7 @@ link:git-resolve-script.html[git-resolve
  link:git-tag-script.html[git-tag-script]::
- 	An example script to create a tag object signed with GPG
+	An example script to create a tag object signed with GPG
  
 -link:git-rpull.html[git-rpull]::
 +link:git-ssh-pull.html[git-ssh-pull]::
- 	Pulls from a remote repository over ssh connection
+	Pulls from a remote repository over ssh connection
  
  Interrogators:
 @@ -156,8 +156,8 @@ Interrogators:
  link:git-diff-helper.html[git-diff-helper]::
- 	Generates patch format output for git-diff-*
+	Generates patch format output for git-diff-*
  
 -link:git-rpush.html[git-rpush]::
 -	Helper "server-side" program used by git-rpull
@@ -91,13 +91,13 @@ diff --git a/Makefile b/Makefile
 --- a/Makefile
 +++ b/Makefile
 @@ -30,7 +30,7 @@ PROG=   git-update-index git-diff-files
- 	git-checkout-cache git-diff-tree git-rev-tree git-ls-files \
- 	git-check-files git-ls-tree git-merge-base git-merge-cache \
- 	git-unpack-file git-export git-diff-cache git-convert-cache \
+	git-checkout-cache git-diff-tree git-rev-tree git-ls-files \
+	git-check-files git-ls-tree git-merge-base git-merge-cache \
+	git-unpack-file git-export git-diff-cache git-convert-cache \
 -	git-http-pull git-rpush git-rpull git-rev-list git-mktag \
 +	git-http-pull git-ssh-push git-ssh-pull git-rev-list git-mktag \
- 	git-diff-helper git-tar-tree git-local-pull git-write-blob \
- 	git-get-tar-commit-id git-mkdelta git-apply git-stripspace
+	git-diff-helper git-tar-tree git-local-pull git-write-blob \
+	git-get-tar-commit-id git-mkdelta git-apply git-stripspace
  
 @@ -105,8 +105,8 @@ git-diff-cache: diff-cache.c
  git-convert-cache: convert-cache.c
@@ -117,21 +117,21 @@ rename to ssh-pull.c
 --- a/rpull.c
 +++ b/ssh-pull.c
 @@ -64,13 +64,13 @@ int main(int argc, char **argv)
- 		arg++;
- 	}
- 	if (argc < arg + 2) {
+		arg++;
+	}
+	if (argc < arg + 2) {
 -		usage("git-rpull [-c] [-t] [-a] [-v] [-d] [--recover] commit-id url");
 +		usage("git-ssh-pull [-c] [-t] [-a] [-v] [-d] [--recover] commit-id url");
- 		return 1;
- 	}
- 	commit_id = argv[arg];
- 	url = argv[arg + 1];
+		return 1;
+	}
+	commit_id = argv[arg];
+	url = argv[arg + 1];
  
 -	if (setup_connection(&fd_in, &fd_out, "git-rpush", url, arg, argv + 1))
 +	if (setup_connection(&fd_in, &fd_out, "git-ssh-push", url, arg, argv + 1))
- 		return 1;
+		return 1;
  
- 	if (get_version())
+	if (get_version())
 diff --git a/rpush.c b/ssh-push.c
 similarity index 93%
 rename from rpush.c
@@ -139,44 +139,44 @@ rename to ssh-push.c
 --- a/rpush.c
 +++ b/ssh-push.c
 @@ -16,7 +16,7 @@ int serve_object(int fd_in, int fd_out) 
- 	do {
- 		size = read(fd_in, sha1 + posn, 20 - posn);
- 		if (size < 0) {
+	do {
+		size = read(fd_in, sha1 + posn, 20 - posn);
+		if (size < 0) {
 -			perror("git-rpush: read ");
 +			perror("git-ssh-push: read ");
- 			return -1;
- 		}
- 		if (!size)
+			return -1;
+		}
+		if (!size)
 @@ -30,7 +30,7 @@ int serve_object(int fd_in, int fd_out) 
- 	buf = map_sha1_file(sha1, &objsize);
- 	
- 	if (!buf) {
+	buf = map_sha1_file(sha1, &objsize);
+	
+	if (!buf) {
 -		fprintf(stderr, "git-rpush: could not find %s\n", 
 +		fprintf(stderr, "git-ssh-push: could not find %s\n", 
- 			sha1_to_hex(sha1));
- 		remote = -1;
- 	}
+			sha1_to_hex(sha1));
+		remote = -1;
+	}
 @@ -45,9 +45,9 @@ int serve_object(int fd_in, int fd_out) 
- 		size = write(fd_out, buf + posn, objsize - posn);
- 		if (size <= 0) {
- 			if (!size) {
+		size = write(fd_out, buf + posn, objsize - posn);
+		if (size <= 0) {
+			if (!size) {
 -				fprintf(stderr, "git-rpush: write closed");
 +				fprintf(stderr, "git-ssh-push: write closed");
- 			} else {
+			} else {
 -				perror("git-rpush: write ");
 +				perror("git-ssh-push: write ");
- 			}
- 			return -1;
- 		}
+			}
+			return -1;
+		}
 @@ -71,7 +71,7 @@ void service(int fd_in, int fd_out) {
- 		retval = read(fd_in, &type, 1);
- 		if (retval < 1) {
- 			if (retval < 0)
+		retval = read(fd_in, &type, 1);
+		if (retval < 1) {
+			if (retval < 0)
 -				perror("rpush: read ");
 +				perror("git-ssh-push: read ");
- 			return;
- 		}
- 		if (type == 'v' && serve_version(fd_in, fd_out))
+			return;
+		}
+		if (type == 'v' && serve_version(fd_in, fd_out))
 @@ -91,12 +91,12 @@ int main(int argc, char **argv)
                  arg++;
          }
@@ -185,10 +185,10 @@ rename to ssh-push.c
 +		usage("git-ssh-push [-c] [-t] [-a] commit-id url");
                  return 1;
          }
- 	commit_id = argv[arg];
- 	url = argv[arg + 1];
+	commit_id = argv[arg];
+	url = argv[arg + 1];
 -	if (setup_connection(&fd_in, &fd_out, "git-rpull", url, arg, argv + 1))
 +	if (setup_connection(&fd_in, &fd_out, "git-ssh-pull", url, arg, argv + 1))
- 		return 1;
+		return 1;
  
- 	service(fd_in, fd_out);
+	service(fd_in, fd_out);

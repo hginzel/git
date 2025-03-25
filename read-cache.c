@@ -416,9 +416,9 @@ int ie_match_stat(struct index_state *istate,
 
 	/*
 	 * Within 1 second of this sequence:
-	 * 	echo xyzzy >file && git-update-index --add file
+	 *	echo xyzzy >file && git-update-index --add file
 	 * running this command:
-	 * 	echo frotz >file
+	 *	echo frotz >file
 	 * would give a falsely clean cache entry.  The mtime and
 	 * length match the cache, and other stat fields do not change.
 	 *

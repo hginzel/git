@@ -1060,7 +1060,7 @@ test_line_count () {
 }
 
 # SYNOPSIS:
-# 	test_stdout_line_count <bin-ops> <value> <cmd> [<args>...]
+#	test_stdout_line_count <bin-ops> <value> <cmd> [<args>...]
 #
 # test_stdout_line_count checks that the output of a command has the number
 # of lines it ought to. For example:

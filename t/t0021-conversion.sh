@@ -39,7 +39,7 @@ test_cmp_count () {
 	for FILE in "$expect" "$actual"
 	do
 		sort "$FILE" | uniq -c |
-		sed -e "s/^ *[0-9][0-9]*[ 	]*IN: /x IN: /" >"$FILE.tmp"
+		sed -e "s/^ *[0-9][0-9]*[	]*IN: /x IN: /" >"$FILE.tmp"
 	done &&
 	test_cmp "$expect.tmp" "$actual.tmp" &&
 	rm "$expect.tmp" "$actual.tmp"

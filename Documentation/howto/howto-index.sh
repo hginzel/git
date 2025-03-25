@@ -14,24 +14,24 @@ do
 	title=$(expr "$adoc" : '.*/\(.*\)\.adoc$')
 	from=$(sed -ne '
 	/^$/q
-	/^From:[ 	]/{
+	/^From:[	]/{
 		s///
-		s/^[ 	]*//
-		s/[ 	]*$//
+		s/^[	]*//
+		s/[	]*$//
 		s/^/by /
 		p
 	}
 	' "$adoc")
 
 	abstract=$(sed -ne '
-	/^Abstract:[ 	]/{
-		s/^[^ 	]*//
+	/^Abstract:[	]/{
+		s/^[^	]*//
 		x
 		s/.*//
 		x
 		: again
-		/^[ 	]/{
-			s/^[ 	]*//
+		/^[	]/{
+			s/^[	]*//
 			H
 			n
 			b again

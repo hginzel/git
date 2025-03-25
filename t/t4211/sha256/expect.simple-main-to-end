@@ -10,8 +10,8 @@ diff --git a/a.c b/a.c
 @@ -18,5 +18,7 @@
  int main ()
  {
- 	printf("%ld\n", f(15));
- 	return 0;
+	printf("%ld\n", f(15));
+	return 0;
 -}
 \ No newline at end of file
 +}
@@ -30,8 +30,8 @@ diff --git a/a.c b/a.c
 @@ -18,5 +18,5 @@
  int main ()
  {
- 	printf("%ld\n", f(15));
- 	return 0;
+	printf("%ld\n", f(15));
+	return 0;
 -}
 +}
 \ No newline at end of file
@@ -50,7 +50,7 @@ diff --git a/a.c b/a.c
  {
 -	printf("%d\n", f(15));
 +	printf("%ld\n", f(15));
- 	return 0;
+	return 0;
  }
 
 commit 1dd7e9b2b1699324b53b341e728653b913bc192a14dfea168c5b51f2b3d03592

@@ -3441,7 +3441,7 @@ out_free:
 							CONTEXT_NEWLINE);
 	  if (BE (dest_states_nl[i] == NULL && err != REG_NOERROR, 0))
 	    goto out_free;
- 	}
+	}
       else
 	{
 	  dest_states_word[i] = dest_states[i];

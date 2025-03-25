@@ -3810,20 +3810,20 @@ static int write_completed_directory(struct merge_options *opt,
 	 *     version_info information.  For example, after the first five
 	 *     entries above, info->versions would be:
 	 *
-	 *     	   xtract.c     <xtract.c's version_info>
-	 *     	   token.txt    <token.txt's version_info>
-	 *     	   umm.c        <src/moduleB/umm.c's version_info>
-	 *     	   stuff.h      <src/moduleB/stuff.h's version_info>
-	 *     	   baz.c        <src/moduleB/baz.c's version_info>
+	 *	   xtract.c     <xtract.c's version_info>
+	 *	   token.txt    <token.txt's version_info>
+	 *	   umm.c        <src/moduleB/umm.c's version_info>
+	 *	   stuff.h      <src/moduleB/stuff.h's version_info>
+	 *	   baz.c        <src/moduleB/baz.c's version_info>
 	 *
 	 *     Once a subdirectory is completed we remove the entries in
 	 *     that subdirectory from info->versions, writing it as a tree
 	 *     (write_tree()).  Thus, as soon as we get to src/moduleB,
 	 *     info->versions would be updated to
 	 *
-	 *     	   xtract.c     <xtract.c's version_info>
-	 *     	   token.txt    <token.txt's version_info>
-	 *     	   moduleB      <src/moduleB's version_info>
+	 *	   xtract.c     <xtract.c's version_info>
+	 *	   token.txt    <token.txt's version_info>
+	 *	   moduleB      <src/moduleB's version_info>
 	 *
 	 * info->offsets:
 	 *
@@ -3834,8 +3834,8 @@ static int write_completed_directory(struct merge_options *opt,
 	 *     the info->versions example above, after processing five entries
 	 *     info->offsets will be:
 	 *
-	 *     	   ""           0
-	 *     	   src/moduleB  2
+	 *	   ""           0
+	 *	   src/moduleB  2
 	 *
 	 *     which is used to know that xtract.c & token.txt are from the
 	 *     toplevel directory, while umm.c & stuff.h & baz.c are from the
@@ -3843,8 +3843,8 @@ static int write_completed_directory(struct merge_options *opt,
 	 *     once we need to process src/moduleB, then info->offsets is
 	 *     updated to
 	 *
-	 *     	   ""           0
-	 *     	   src          2
+	 *	   ""           0
+	 *	   src          2
 	 *
 	 *     which says that moduleB (and only moduleB so far) is in the
 	 *     src directory.

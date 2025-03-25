@@ -41,7 +41,7 @@ Otherwise, a tag reference that points directly at the given object
 A GnuPG signed tag object will be created when `-s` or `-u
 <key-id>` is used.  When `-u <key-id>` is not used, the
 committer identity for the current user is used to find the
-GnuPG key for signing. 	The configuration variable `gpg.program`
+GnuPG key for signing.	The configuration variable `gpg.program`
 is used to specify custom GnuPG binary.
 
 Tag objects (created with `-a`, `-s`, or `-u`) are called "annotated"

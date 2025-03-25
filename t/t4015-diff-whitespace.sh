@@ -108,7 +108,7 @@ test_expect_success 'another test, without options' '
 
 	tr "_" " " <<-\EOF >x &&
 	_	whitespace at beginning
-	whitespace 	 change
+	whitespace	 change
 	white space in the middle
 	whitespace at end__
 	unchanged line
@@ -127,8 +127,8 @@ test_expect_success 'another test, without options' '
 	-whitespace change
 	-whitespace in the middle
 	-whitespace at end
-	+ 	whitespace at beginning
-	+whitespace 	 change
+	+	whitespace at beginning
+	+whitespace	 change
 	+white space in the middle
 	+whitespace at end__
 	 unchanged line
@@ -162,7 +162,7 @@ test_expect_success 'another test, without options' '
 	@@ -1,6 +1,6 @@
 	-whitespace at beginning
 	+_	whitespace at beginning
-	 whitespace 	 change
+	 whitespace	 change
 	-whitespace in the middle
 	+white space in the middle
 	 whitespace at end__
@@ -188,7 +188,7 @@ test_expect_success 'another test, without options' '
 	-whitespace change
 	-whitespace in the middle
 	+_	whitespace at beginning
-	+whitespace 	 change
+	+whitespace	 change
 	+white space in the middle
 	 whitespace at end__
 	 unchanged line
@@ -567,14 +567,14 @@ test_expect_success 'ignore-blank-lines: mix changes and blank lines' '
 
 test_expect_success 'check mixed spaces and tabs in indent' '
 	# This is indented with SP HT SP.
-	echo " 	 foo();" >x &&
+	echo "	 foo();" >x &&
 	test_must_fail git diff --check >check &&
 	grep "space before tab in indent" check
 '
 
 test_expect_success 'check mixed tabs and spaces in indent' '
 	# This is indented with HT SP HT.
-	echo "	 	foo();" >x &&
+	echo "		foo();" >x &&
 	test_must_fail git diff --check >check &&
 	grep "space before tab in indent" check
 '
@@ -592,7 +592,7 @@ test_expect_success 'check with trailing whitespace' '
 
 test_expect_success 'check with space before tab in indent' '
 	# indent has space followed by hard tab
-	echo " 	foo();" >x &&
+	echo "	foo();" >x &&
 	test_must_fail git diff --check
 '
 
@@ -643,7 +643,7 @@ test_expect_success 'check staged with trailing whitespace' '
 
 test_expect_success 'check staged with space before tab in indent' '
 	# indent has space followed by hard tab
-	echo " 	foo();" >x &&
+	echo "	foo();" >x &&
 	git add x &&
 	test_must_fail git diff --cached --check
 '
@@ -662,7 +662,7 @@ test_expect_success 'check with trailing whitespace (diff-index)' '
 
 test_expect_success 'check with space before tab in indent (diff-index)' '
 	# indent has space followed by hard tab
-	echo " 	foo();" >x &&
+	echo "	foo();" >x &&
 	git add x &&
 	test_must_fail git diff-index --check HEAD
 '
@@ -681,7 +681,7 @@ test_expect_success 'check staged with trailing whitespace (diff-index)' '
 
 test_expect_success 'check staged with space before tab in indent (diff-index)' '
 	# indent has space followed by hard tab
-	echo " 	foo();" >x &&
+	echo "	foo();" >x &&
 	git add x &&
 	test_must_fail git diff-index --cached --check HEAD
 '
@@ -700,7 +700,7 @@ test_expect_success 'check with trailing whitespace (diff-tree)' '
 
 test_expect_success 'check with space before tab in indent (diff-tree)' '
 	# indent has space followed by hard tab
-	echo " 	foo();" >x &&
+	echo "	foo();" >x &&
 	git commit -m "yet another" x &&
 	test_must_fail git diff-tree --check HEAD^ HEAD
 '
@@ -737,14 +737,14 @@ test_expect_success 'check trailing whitespace (trailing-space: on)' '
 test_expect_success 'check space before tab in indent (space-before-tab: off)' '
 	# indent contains space followed by HT
 	git config core.whitespace "-space-before-tab" &&
-	echo " 	foo ();" >x &&
+	echo "	foo ();" >x &&
 	git diff --check
 '
 
 test_expect_success 'check space before tab in indent (space-before-tab: on)' '
 	# indent contains space followed by HT
 	git config core.whitespace "space-before-tab" &&
-	echo " 	foo ();   " >x &&
+	echo "	foo ();   " >x &&
 	test_must_fail git diff --check
 '
 

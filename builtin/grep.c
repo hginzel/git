@@ -475,7 +475,7 @@ static int grep_submodule(struct grep_opt *opt,
 	 * superproject are incorrectly forgotten or misused. For example:
 	 *
 	 * 1. "command_requires_full_index"
-	 * 	When this setting is turned on for `grep`, only the superproject
+	 *	When this setting is turned on for `grep`, only the superproject
 	 *	knows it. All the submodules are read with their own configs
 	 *	and get prepare_repo_settings()'d. Therefore, these submodules
 	 *	"forget" the sparse-index feature switch. As a result, the index

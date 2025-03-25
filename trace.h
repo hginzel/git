@@ -72,7 +72,7 @@
  *
  * static void trace_print_foo(const char *message)
  * {
- * 	trace_printf_key(&trace_foo, "%s", message);
+ *	trace_printf_key(&trace_foo, "%s", message);
  * }
  * ------------
  *
@@ -209,7 +209,7 @@ uint64_t trace_performance_enter(void);
  * ------------
  * uint64_t t = 0;
  * for (;;) {
- * 	// ignore
+ *	// ignore
  * t -= getnanotime();
  * // code section to measure
  * t += getnanotime();

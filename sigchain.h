@@ -20,16 +20,16 @@
  * ------------------------------------------
  *   void clean_foo_on_signal(int sig)
  *   {
- * 	  clean_foo();
- * 	  sigchain_pop(sig);
- * 	  raise(sig);
+ *	  clean_foo();
+ *	  sigchain_pop(sig);
+ *	  raise(sig);
  *   }
  *
  *   void other_func()
  *   {
- * 	  sigchain_push_common(clean_foo_on_signal);
- * 	  mess_up_foo();
- * 	  clean_foo();
+ *	  sigchain_push_common(clean_foo_on_signal);
+ *	  mess_up_foo();
+ *	  clean_foo();
  *   }
  * ------------------------------------------
  *

@@ -10,18 +10,18 @@ diff --git a/main.c b/main.c
 +void print_ln();
  
  int main() {
- 	int i;
+	int i;
 @@ -10,6 +12,8 @@
- 		print_int(func(i));
- 	}
+		print_int(func(i));
+	}
  
 +	print_ln();
 +
- 	return 0;
+	return 0;
  }
  
 @@ -21,3 +25,7 @@
- 	printf("%d", num);
+	printf("%d", num);
  }
  
 +void print_ln() {
